@@ -1,0 +1,57 @@
+---
+layout: post
+status: publish
+published: true
+title: Tales of Vesperia
+author:
+  display_name: wizillo
+  login: soywiz
+  email: soywiz@gmail.com
+  url: ''
+author_login: soywiz
+author_email: soywiz@gmail.com
+wordpress_id: 8
+wordpress_url: http://notas.tales-tra.com/?p=8
+date: '2010-09-09 11:19:42 +0200'
+date_gmt: '2010-09-09 11:19:42 +0200'
+categories:
+- Nota
+tags:
+- tales of vesperia
+- hacking
+comments: []
+---
+<p>A falta de escribir sobre los formatos de archivos de empaquetado y el script, voy a comentar lo que voy a hacer hoy:</p>
+<p>Una de las cosas mÃ¡s peliagudas de la traducciÃ³n va a ser la ediciÃ³n grÃ¡fica. Actualmente lo mÃ¡s importante es la ediciÃ³n de la fuente, y es lo que voy a intentar solucionar ASAP.</p>
+<p>El paquete UI.svo (presumiblemente User Interface) contiene lo que son supuestamente las texturas que componen la fuente y otras imÃ¡genes como menÃºs e imÃ¡genes de objetos.</p>
+<p>La fuente presumiblemente estÃ¡ compuesta por los siguientes archivos: FONTTEX00.TX(M|V)-FONTTEX16.TX(M|V) 4MB cada uno (512x512x16). Los archivos con texturas estÃ¡n compuestos por dos archivos: TXM y TXV. TX posiblemente venga de TeXture. V igual de Vector o de Values. Y la M ni idea (quizÃ¡ Modifiers).</p>
+<p>En cualquier caso el TXM contiene informaciÃ³n sobre la textura y el TXV los datos de la textura en raw.</p>
+<p>Sobre el offset 0x60 o 0x64 (dependiendo) hay un entero de 32 bits big endian que contiene informaciÃ³n sobre la textura almacenada. Si no me equivoco corresponde al enum D3DDECLTYPE que bÃ¡sicamente empaqueta informaciÃ³n sobre el formato, el endian, si estÃ¡ tileado, el swizzling de colores (creo) etc.</p>
+<p>AquÃ­ un par de resultados que extraje con una utilidad que hice:</p>
+<pre><code>
+File: 18280186 : cook_beefbowl
+Format: 6
+Endian: 2
+Tiled: 1
+numForm: 0
+signXYZW: 0, 0, 0, 0
+swizzXYZW: 2, 1, 0, 3 (b, g, r, a)
+
+File: 1A200154 : fonttex01
+Format: 20
+Endian: 1
+Tiled: 1
+numForm: 0
+signXYZW: 0, 0, 0, 0
+swizzXYZW: 0, 1, 2, 3
+
+GPUTEXTUREFORMAT_8_8_8_8                        = 6,
+GPUTEXTUREFORMAT_DXT4_5                         = 20,
+
+</code></pre>
+<p>AquÃ­ tenemos una imagen que estÃ¡ guardada en BGRA y sin comprimir (cook_beefbowl). Y otra, la de la fuente, que usa DXT4_5.</p>
+<p>AdemÃ¡s de la compresiÃ³n de la textura, los pixeles estÃ¡n almacenados desordenados (supuestamente), lo que se llama swizzling para maximizar la cachÃ© de la GPU de la 360 a la hora de renderizar polÃ­gonos y acceder a mipmaps. TambiÃ©n creo que igual almacena en la misma imagen un mipmap. En principio y supuestamente el cook_beefbowl no deberÃ­a tener mipmaps, pero no estoy 100% seguro.</p>
+<p>Al extraer usando tiles de 32x32, he sacado esta imagen:</p>
+<p><img class="alignnone size-full wp-image-9" title="COOK_BEEFBOWL" src="http://notas.tales-tra.com/img/2010/09/COOK_BEEFBOWL.png" alt="COOK_BEEFBOWL.png" width="128" height="128" /></p>
+<p>Los colores estÃ¡n bien, asÃ­ que el formato 8_8_8_8 es correcto, pero obviamente los pixeles estÃ¡n desordenados.</p>
+<p>Luego explicarÃ© cÃ³mo voy a intentar "adivinar" el ordenado de los pixeles ahora que tengo la JTAG.</p>

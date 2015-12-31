@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: Tales of Vesperia
+author:
+  display_name: wizillo
+  login: soywiz
+  email: soywiz@gmail.com
+  url: ''
+author_login: soywiz
+author_email: soywiz@gmail.com
+wordpress_id: 10
+wordpress_url: http://notas.tales-tra.com/?p=10
+date: '2010-09-09 12:07:56 +0200'
+date_gmt: '2010-09-09 12:07:56 +0200'
+categories:
+- Nota
+tags:
+- tales of vesperia
+- hacking
+comments: []
+---
+<p>Para sacar el swizzling este con el orden de los pixeles en la textura hay varias formas posibles:</p>
+<p><strong>1Âº</strong> Guessing. Intentar deducir el swizzling. Lo he intentado sin suerte, asÃ­ que esto descartado.</p>
+<p><strong>2Âº</strong> Localizar el cÃ³digo que se encarga de hacer el deswizzling. (Posiblemente se haga en la grÃ¡ficamente directamente, aunque habrÃ¡ versiÃ³n de software posiblemente en el API del XDK)</p>
+<p><strong>3Âº</strong> Localizar el cÃ³digo o hacer un programa que llame a la API esta y lanzarlo desde la 360 o desde el ordenador para generar una imagen con el swizzling este. (Si me funcionase el XDK serÃ­a una opciÃ³n, pero no he logrado compilar nada por el momento. TambiÃ©n hay otras opciones que pueden ser mas fÃ¡ciles.)</p>
+<p><strong>4Âº</strong> Ahora que tengo acceso a modificaciones, puedo coger una textura que sepa exactamente dÃ³nde se usa y modificarla a mi antojo para ver cÃ³mo la muestra el juego por pantalla y sacar un mapeado. La textura que he puesto en el post anterior usa un formato de color ARGB muy sencillo y el Ãºnico problema es el orden de los pÃ­xeles, asÃ­ que puede ser una imagen ideal para probar. Lo que harÃ© es llenarla de pÃ­xeles transparentes y luego poner los primeros pÃ­xeles de la imagen haciendo un degradado o con colores diferentes y ver dÃ³nde se posicionan en la imagen final que se ve en pantalla. Luego serÃ¡ sacar el proceso inverso en cuanto vea el patrÃ³n que sigue.</p>
+<p>Por ahora voy a probar con el mÃ©todo 4, que es el mÃ¡s directo y aparentemente el mÃ¡s sencillo, suponiendo que el patrÃ³n de swizzling sea fÃ¡cil.</p>
+<p>Edito:<br />
+Debido a que estÃ¡ nada mÃ¡s empezar el juego, voy a usar el gel de manzana:</p>
+<p><img src="http://notas.tales-tra.com/img/2010/09/ITEM_APPLEGUMI.TXV_.png" alt="ITEM_APPLEGUMI.TXV" title="ITEM_APPLEGUMI.TXV" width="128" height="128" class="alignnone size-full wp-image-11" /></p>

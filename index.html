@@ -8,7 +8,7 @@ layout: default
 
   <article class="post-list">
     {% for post in site.posts %}
-        <header><p>Por @{{ post.author }} el {{ post.date | date: "%b %-d, %Y" }}</p></header>
+        <header><p>Por @{{ post.author.display_name }} el {{ post.date | date: "%b %-d, %Y" }}</p></header>
         <div>{{ post.content }}</div>
     {% endfor %}
   </article>

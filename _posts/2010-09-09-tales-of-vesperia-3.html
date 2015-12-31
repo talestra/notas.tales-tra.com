@@ -1,0 +1,77 @@
+---
+layout: post
+status: publish
+published: true
+title: Tales of Vesperia
+author:
+  display_name: wizillo
+  login: soywiz
+  email: soywiz@gmail.com
+  url: ''
+author_login: soywiz
+author_email: soywiz@gmail.com
+wordpress_id: 12
+wordpress_url: http://notas.tales-tra.com/?p=12
+date: '2010-09-09 13:15:02 +0200'
+date_gmt: '2010-09-09 13:15:02 +0200'
+categories:
+- Nota
+tags:
+- tales of vesperia
+- hacking
+comments: []
+---
+<p>El apple gel original:</p>
+<p><img src="http://notas.tales-tra.com/img/2010/09/apple_0.jpg" alt="" title="apple_0" width="640" height="480" class="alignnone size-full wp-image-13" /></p>
+<p>Para probar que estaba modificando el archivo que tocaba y que todo era como esperaba, he creado una imagen raw de 128x128xA8R8G8B8 de color negro (255,0,0,0) y la he plantado donde iba el appl gel. Ha ido chachi wachi:</p>
+<pre><code>
+for ($n = 0; $n < 128 * 128; $n++) {
+   list($a, $r, $g, $b) = array(0xFF, 0x00, 0x00, 0x00);
+   fwrite($f, pack('C4', $a, $r, $g, $b));
+}
+
+</code></pre>
+<p><img src="http://notas.tales-tra.com/img/2010/09/apple_1.jpg" alt="" title="apple_1" width="640" height="480" class="alignnone size-full wp-image-14" /></p>
+<p>Primeras pruebas de contenido 96 pixeles pintados de degradados de rojo, verde y azul:</p>
+<pre><code>
+for ($n = 0; $n < 128 * 128; $n++) {
+   list($a, $r, $g, $b) = array(0xFF, 0x00, 0x00, 0x00);
+   if ($n >=  0 && $n < 32) $r = ($n - 0) * 8;
+   if ($n >= 32 && $n < 64) $g = ($n - 32) * 8;
+   if ($n >= 64 && $n < 96) $b = ($n - 64) * 8;
+   fwrite($f, pack('C4', $a, $r, $g, $b));
+}
+
+</code></pre>
+<p><img src="http://notas.tales-tra.com/img/2010/09/apple_2.jpg" alt="" title="apple_2" width="640" height="480" class="alignnone size-full wp-image-15" /></p>
+<p>Prueba de mapeado completo (cada pixel tiene un color diferente la X hace que la intensidad del rojo aumente y la Y que la intensidad del azul aumente):</p>
+<pre><code>
+for ($y = 0; $y < 128; $y++) {
+   for ($x = 0; $x < 128; $x++) {
+      list($a, $r, $g, $b) = array(0xFF, 0x00, 0x00, 0x00);
+      $r = $x * 2;
+      $b = $y * 2;
+      fwrite($f, pack('C4', $a, $r, $g, $b));
+   }
+}
+
+</code></pre>
+<p><img src="http://notas.tales-tra.com/img/2010/09/black128x128.txv_.png" alt="" title="black128x128.txv" width="128" height="128" class="alignnone size-full wp-image-16" /></p>
+<p><img src="http://notas.tales-tra.com/img/2010/09/apple_3.jpg" alt="" title="apple_3" width="640" height="480" class="alignnone size-full wp-image-17" /></p>
+<p>Prueba con un degradado de arriba a abajo:</p>
+<pre><code>
+for ($n = 0, $y = 0; $y < 128; $y++) {
+   for ($x = 0; $x < 128; $x++, $n++) {
+      list($a, $r, $g, $b) = array(0xFF, 0x00, 0x00, 0x00);
+      $b = $g = $r = ($y / 127) * 255;
+      fwrite($f, pack('C4', $a, $r, $g, $b));
+      imagesetpixel($i, $x, $y, imagecolorallocate($i, $r, $g, $b));
+   }
+}
+
+</code></pre>
+<p><img src="http://notas.tales-tra.com/img/2010/09/degradado_arriba_abajo.png" alt="" title="degradado_arriba_abajo" width="128" height="128" class="alignnone size-full wp-image-18" /></p>
+<p><img src="http://notas.tales-tra.com/img/2010/09/apple_4.jpg" alt="" title="apple_4" width="640" height="480" class="alignnone size-full wp-image-19" /></p>
+<p>Y luego prueba con un degradado de izquierda a derecha:</p>
+<p><img src="http://notas.tales-tra.com/img/2010/09/degradado_izquierda_derecha.png" alt="" title="degradado_izquierda_derecha" width="128" height="128" class="alignnone size-full wp-image-20" /></p>
+<p><img src="http://notas.tales-tra.com/img/2010/09/apple_5.jpg" alt="" title="apple_5" width="640" height="518" class="alignnone size-full wp-image-21" /></p>
