@@ -6,8 +6,6 @@ author: wizillo
 categories: hacking tales_of_vesperia
 ---
 
-
-
 Para sacar el swizzling este con el orden de los pixeles en la textura hay varias formas posibles:
 
 **1º** Guessing. Intentar deducir el swizzling. Lo he intentado sin suerte, así que esto descartado.

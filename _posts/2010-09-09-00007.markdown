@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "00006"
+date:   2010-09-09 14:32:00 +0100
+author: wizillo
+categories: hacking tales_of_vesperia
+---
+
+Ya sé más o menos por donde cogerlo. Consistirá en hacer tiling de bloques de 32×32. Y aplicar un vector/matrix de swizzling de 32×16 que parece que es el patrón que se repite en los dos subbloques de 512 texels que saldrán por cada bloque de 32×32.
+
+Voy a hacer prueba a ver qué tal. (Tengo que sacar primero el vector/matrix, claro).
