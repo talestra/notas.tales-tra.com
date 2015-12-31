@@ -9,7 +9,7 @@ layout: default
     <aside>
 		<p><strong>Tags:</strong>
 		{% for tag in post.tags %}
-		<a href="http://notas.tales-tra.com/tag/{{ tag }}/" rel="tag">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
+		<a href="/tag/{{ tag }}/" rel="tag">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
 		{% endfor %}
 		</p>
 	</aside>
