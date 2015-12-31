@@ -52,6 +52,6 @@ GPUTEXTUREFORMAT_DXT4_5                         = 20,
 <p>Aquí tenemos una imagen que está guardada en BGRA y sin comprimir (cook_beefbowl). Y otra, la de la fuente, que usa DXT4_5.</p>
 <p>Además de la compresión de la textura, los pixeles están almacenados desordenados (supuestamente), lo que se llama swizzling para maximizar la caché de la GPU de la 360 a la hora de renderizar polígonos y acceder a mipmaps. También creo que igual almacena en la misma imagen un mipmap. En principio y supuestamente el cook_beefbowl no debería tener mipmaps, pero no estoy 100% seguro.</p>
 <p>Al extraer usando tiles de 32x32, he sacado esta imagen:</p>
-<p><img class="alignnone size-full wp-image-9" title="COOK_BEEFBOWL" src="http://notas.tales-tra.com/img/2010/09/COOK_BEEFBOWL.png" alt="COOK_BEEFBOWL.png" width="128" height="128" /></p>
+<p><img class="alignnone size-full wp-image-9" title="COOK_BEEFBOWL" src="/img/2010/09/COOK_BEEFBOWL.png" alt="COOK_BEEFBOWL.png" width="128" height="128" /></p>
 <p>Los colores están bien, así que el formato 8_8_8_8 es correcto, pero obviamente los pixeles están desordenados.</p>
 <p>Luego explicaré cómo voy a intentar "adivinar" el ordenado de los pixeles ahora que tengo la JTAG.</p>
