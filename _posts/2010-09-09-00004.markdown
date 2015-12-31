@@ -1,6 +1,5 @@
 ---
 layout: post
-title:  "00004"
 date:   2010-09-09 12:07:00 +0100
 author: wizillo
 categories: hacking tales_of_vesperia

@@ -1,0 +1,21 @@
+---
+layout: post
+date:   2010-09-11 11:30:00 +0100
+author: wizillo
+categories: fuente hacking tales_of_vesperia
+---
+
+
+
+Lo que estoy viendo no me mola un pelo…
+
+Esperemos que no hayan tenido los santísimos cojones de hardcodear el encoding de los caracteres en el EXE y que esté en algún otro sitio. Si no, no podremos poner la ñ y demás sin usar JTAG.
+
+Por lo que parece y ya que no veo caracteres con acentos es que habrán hecho de colocar el acento encima. Igual hay algún archivo con “recortes” de esas texturas. Tengo que mirarlo bien.
+
+[FONTTEXT.7z](/img/2010/09/FONTTEXT.7z) [3.93 MiB]
+
+Ahí ya hay una cejilla, aunque es muy ancha (para la ñ). Imagino que de haber un sitio con las construcciones de los caracteres dejará escalar también así que igual la podemos usar sin tocar la fuente en sí.
+
+La fuente que nos interesa: FONTTEX10.TXV.tga
+

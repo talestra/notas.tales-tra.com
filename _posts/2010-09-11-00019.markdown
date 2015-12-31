@@ -1,0 +1,26 @@
+---
+layout: post
+date:   2010-09-11 15:10:00 +0100
+author: wizillo
+categories: fuente hacking tales_of_vesperia
+---
+
+He metido TODOS los textos de MISC:
+
+![](/img/2010/09/record.jpg)
+
+![](/img/2010/09/objetos.jpg)
+
+![](/img/2010/09/menu_ppal.jpg)
+
+![](/img/2010/09/habilidades.jpg)
+
+![](/img/2010/09/estrategia.jpg)
+
+![](/img/2010/09/estado.jpg)
+
+![](/img/2010/09/equipo.jpg)
+
+![](/img/2010/09/config2.jpg)
+
+![](/img/2010/09/config.jpg)

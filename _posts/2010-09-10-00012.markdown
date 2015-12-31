@@ -1,0 +1,35 @@
+---
+layout: post
+date:   2010-09-10 10:40:00 +0100
+author: wizillo
+categories: hacking tales_of_vesperia
+---
+
+Un regalito para los que leéis esto:
+
+![](/img/2010/09/ITEM_STATUE_02.TXV_.png)
+
+[http://tov.tales-tra.com/items/items.html](http://tov.tales-tra.com/items/items.html)
+
+Todos los items extraídos con canal alpha. Hay algunos la mar de lolers xd.
+
+Al final lo que pasaba es que vez de un sub-subbloque de 1×1 que inicialmente pensé y que luego pasé a 1×2 y luego a 2×2, resultaba ser un 3×2 xdd. Posiblemente relativo al tamaño de la textura.
+
+Para ver lo que pasaba he hecho esto:
+
+![](/img/2010/09/ITEM_ATMP_047.TXV_.png)
+
+{% highlight c %}
+#include <...>
+
+#define UINT unsigned int
+
+void main() {
+   int n;
+   for (n = 0; n < 128; n++) {
+      printf("%d, %d\n", XGAddress2DTiledX(n, 128, 4), XGAddress2DTiledY(n, 128, 4));
+   }
+}
+{% endhighlight %}
+
+![](/img/2010/09/ITEM_CLO13.TXV_.png)

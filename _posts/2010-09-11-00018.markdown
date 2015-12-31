@@ -1,0 +1,18 @@
+---
+layout: post
+date:   2010-09-11 11:58:00 +0100
+author: wizillo
+categories: fuente hacking tales_of_vesperia
+---
+
+![](/img/2010/09/tov_characters.jpg)
+
+El texto está en UTF-8.
+
+“áéíóúÁÉÍÓÚäëïöüÄËÏÖÜñÑ¡¿âêîôûÂÊÎÔÛ”
+
+He mirado a ver los caracteres que hay y únicamente faltarán “¿¡ñÑ”. Las letras “ü” y “Ü” están. Supongo que a malas podríamos usar algún carácter que está por ahí: “⍺ß”.
+
+Estoy buscando el Vesperia americano para “comparar” y ver si me hago una idea donde está el mapeado de caracteres. Imagino que será un archivo con “shapes” que serán recortes de textura.
+
+Las texturas que he puesto antes tienen los bloques desordenados. No le he dado mucha importancia porque lo importante (que son las letras) se veían ya bien. Pero no le busquéis mucho sentido al orden porque están mal colocados xd

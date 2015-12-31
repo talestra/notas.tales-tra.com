@@ -1,0 +1,8 @@
+---
+layout: post
+date:   2010-09-11 11:20:00 +0100
+author: wizillo
+categories: fuente hacking tales_of_vesperia
+---
+
+![](/img/2010/09/font_test2-600x600.png)

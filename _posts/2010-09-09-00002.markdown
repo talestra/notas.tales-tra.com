@@ -1,6 +1,5 @@
 ---
 layout: post
-title:  "tools"
 date:   2010-09-09 11:03:00 +0100
 author: wizillo
 categories: hacking tales_of_vesperia
