@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "00004"
+date:   2010-09-09 12:07:00 +0100
+author: wizillo
+categories: hacking tales_of_vesperia
+---
+
+
+
+Para sacar el swizzling este con el orden de los pixeles en la textura hay varias formas posibles:
+
+**1º** Guessing. Intentar deducir el swizzling. Lo he intentado sin suerte, así que esto descartado.
+
+**2º** Localizar el código que se encarga de hacer el deswizzling. (Posiblemente se haga en la gráficamente directamente, aunque habrá versión de software posiblemente en el API del XDK)
+
+**3º** Localizar el código o hacer un programa que llame a la API esta y lanzarlo desde la 360 o desde el ordenador para generar una imagen con el swizzling este. (Si me funcionase el XDK sería una opción, pero no he logrado compilar nada por el momento. También hay otras opciones que pueden ser mas fáciles.)
+
+**4º** Ahora que tengo acceso a modificaciones, puedo coger una textura que sepa exactamente dónde se usa y modificarla a mi antojo para ver cómo la muestra el juego por pantalla y sacar un mapeado. La textura que he puesto en el post anterior usa un formato de color ARGB muy sencillo y el único problema es el orden de los píxeles, así que puede ser una imagen ideal para probar. Lo que haré es llenarla de píxeles transparentes y luego poner los primeros píxeles de la imagen haciendo un degradado o con colores diferentes y ver dónde se posicionan en la imagen final que se ve en pantalla. Luego será sacar el proceso inverso en cuanto vea el patrón que sigue.
+
+Por ahora voy a probar con el método 4, que es el más directo y aparentemente el más sencillo, suponiendo que el patrón de swizzling sea fácil.
+
+Edito:
+
+Debido a que está nada más empezar el juego, voy a usar el gel de manzana:
+
+![ITEM_APPLEGUMI.TXV_.png](/img/2010/09/ITEM_APPLEGUMI.TXV_.png)

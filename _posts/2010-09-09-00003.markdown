@@ -49,8 +49,6 @@ Al extraer usando tiles de 32×32, he sacado esta imagen:
 
 ![COOK_BEEFBOWL.png](/img/2010/09/COOK_BEEFBOWL.png)
 
-
-
 Los colores están bien, así que el formato 8_8_8_8 es correcto, pero obviamente los pixeles están desordenados.
 
 Luego explicaré cómo voy a intentar “adivinar” el ordenado de los pixeles ahora que tengo la JTAG.
